@@ -19,8 +19,8 @@ class RiskController extends Controller
                 , (DB::raw('(SELECT (data._9q1+data._9q2+data._9q3+data._9q4+data._9q5+data._9q6+data._9q7+data._9q8+data._9q9)) as sum9Q'))
                 , (DB::raw('(SELECT (data._8q1+data._8q2+data._8q3+data._8q4+data._8q5+data._8q6+data._8q7+data._8q8)) as sum8Q'))
             )
-            ->where('data.name_province', '=', 'สงขลา')
-            ->where('data.name_amphure', '=', 'หาดใหญ่')
+            ->where('data.name_province', '=', 'ตรัง')
+            ->where('data.name_amphure', '=', 'ปะเหลียน')
             ->where('data.risk_name', '!=', '')
             ->where('data.risk_tel', '!=', '')
         //->where('trace.trace', '=', '1')
@@ -50,7 +50,7 @@ class RiskController extends Controller
             ->select('trace.date_create', 'trace.pfa', 'trace.contact', 'trace.doctor', 'trace.other', 'trace.plan'
                 , 'trace.ok', 'trace.trace', 'trace.c_trace')
             ->where('trace.data_id', '=', $id)
-            ->orderBy('trace.date_create', 'desc')
+            ->orderBy('trace.date_create', 'ASC')
             ->paginate(15);
 
         return view('risk.get', [
