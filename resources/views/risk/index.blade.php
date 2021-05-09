@@ -6,7 +6,7 @@
     <h2 align="center">ติดตามกลุ่มเสี่ยง</h2>
    <br>
     <div class="form-row">
-      <div class="form-group col-md-6"> 
+      <div class="form-group col-md-4"> 
         {!! Form::label('l_book_from', 'ค้นหารายชื่อ', ['class' => 'col-sm-6 col-form-label']) !!}
       <div class="input-group mb-3"> 
         <input type="text"  class="form-control" id="search_name"  placeholder="พิมพ์เพื่อค้นหา">
@@ -15,6 +15,29 @@
          </div>
       </div>
       </div>
+      <div class="form-group col-md-3">
+
+      </div>
+      <div class="form-group col-md-3">
+
+      </div>
+      <div class="form-group col-md-2">
+        <!-- small card -->
+        <div class="small-box bg-info">
+          <div class="inner">
+            <h3>
+              {{$datas->total()}}
+            </h3>
+            <p>จำนวนผู้ที่มีความเสี่ยงทั้งหมด</p>
+          </div>
+          <div class="icon">
+              <i class="ion ion-person-add"></i>
+          </div>
+          <a href="#" class="small-box-footer">
+          </a>
+        </div>
+      </div>
+
       <table class="table table-striped">
         <thead>
           <tr>
