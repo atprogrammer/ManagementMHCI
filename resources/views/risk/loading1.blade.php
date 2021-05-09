@@ -12,7 +12,7 @@
         filter: alpha(opacity=75);   
         -moz-opacity: .75;  
         z-index: 999;  
-        background: #fff url(http://i.imgur.com/KUJoe.gif) 50% 50% no-repeat;
+        background: #fff url({{asset('images/load.gif')}}) 50% 50% no-repeat;
     }   
     .main-contain{
         position: absolute;  

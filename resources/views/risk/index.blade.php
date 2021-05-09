@@ -65,41 +65,59 @@
           <tr>
             <tr><th scope="row"><?php $i++;?>{{$i}}</th>
               <?php 
-               $risk_name='';
-               $risk_surname='';
+              //  $risk_name='';
+              //  $risk_surname='';
               if($data->risk_name==null){
                 $risk_name='-';
               }else{
                 $risk_name=$data->risk_name;
+                $risk_name = preg_replace('|/|',' ', $risk_name);
               }
               if($data->risk_surname==null){
                 $risk_surname='-';
               }else{
                 $risk_surname=$data->risk_surname;
+                $risk_surname = preg_replace('|/|',' ', $risk_surname);
               }
               if($data->name_district==null){
                 $name_district='-';
               }else{
                 $name_district=$data->name_district;
+                $name_district = preg_replace('|/|',' ', $name_district);
               }
               if($data->name_amphure==null){
                 $name_amphure='-';
               }else{
                 $name_amphure=$data->name_amphure;
+                $name_amphure = preg_replace('|/|',' ', $name_amphure);
               }
               if($data->name_province==null){
                 $name_province='-';
               }else{
                 $name_province=$data->name_province;
+                $name_province = preg_replace('|/|',' ', $name_province);
               }
               if($data->risk_tel==null){
                 $risk_tel='-';
               }else{
                 $risk_tel=$data->risk_tel;
+                $risk_tel = preg_replace('|/|',' ', $risk_tel);
+              }
+              if($data->address==null){
+                $address='-';
+              }else{
+                $address=$data->address;
+                $address = preg_replace('|/|',' ', $address);
+              }
+              if($data->data_create==null){
+                $data_create='-';
+              }else{
+                $data_create=date('Y-m-d', strtotime($data->data_create));
+                $data_create = preg_replace('|/|',' ', $data_create);
               }
               ?>
             <td><a href="{{route('risk.get',[$data->id,$risk_name,$risk_surname
-            ,$name_district,$name_amphure,$name_province,$risk_tel])}}">
+            ,$name_district,$name_amphure,$name_province,$risk_tel,$address,$data_create])}}">
                 <?php if($data->data_id<=0){?>
                 <img src="{{asset('images/FALSE.png')}}" width="50px" height="50px">
                 <?php }else if($data->trace=='1'){?>

@@ -33,6 +33,9 @@ Route::get('/dashboard1/{id?}',[DashboardController::class,'dashboard1'])->name(
 Route::get('/dashboard2',[DashboardController::class,'dashboard2']);
 
 
-Route::get('/risk/{id?}',[RiskController::class,'index'])->name('risk.index');
-Route::get('/risk/get/{id1?}/{id2?}/{id3?}/{id4?}/{id5?}/{id6?}/{id7?}',[RiskController::class,'get_risk'])->name('risk.get');
+Route::get('/risk/index/{id?}',[RiskController::class,'index'])->name('risk.index');
+Route::get('/risk/get/{id1?}/{id2?}/{id3?}/{id4?}/{id5?}/{id6?}/{id7?}/{id8?}/{id9?}',[RiskController::class,'get_risk'])->name('risk.get');
+Route::post('/risk/action',[RiskController::class,'create'])->name('risk.create');
+Route::post('/risk/store', [RiskController::class, 'store'])->name('risk.store'); 
+
 

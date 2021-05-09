@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 
 class RiskController extends Controller
 {
@@ -69,7 +70,7 @@ class RiskController extends Controller
 
     }
 
-    public function get_risk($id = null, $name = null, $surname = null, $district = null, $amphure = null, $province = null, $tel = null)
+    public function get_risk($id = null, $name = null, $surname = null, $district = null, $amphure = null, $province = null, $tel = null, $address = null, $date_in = null)
     {
 
         $datas = DB::table('trace')
@@ -88,7 +89,39 @@ class RiskController extends Controller
             'province' => $province,
             'tel' => $tel,
             'datas' => $datas,
+            'address' => $address,
+            'date_in' => $date_in,
         ]);
     }
+    
+    public function create(Request $request)
+    {
+        //return view('risk.action_form');
+        return view('risk.action_form', [
+            'id' => $request->id,
+            'name' => $request->name,
+            'surname' => $request->surname,
+            'district' => $request->district,
+            'amphure' => $request->amphure,
+            'province' => $request->province,
+            'tel' => $request->tel,
+            'address' => $request->address,
+            'date_in' => $request->date_in,
+        ]);
+        //dd($request->id);
+       //dd($request);
+
+    }
+
+    public function store(Request $request)
+    {
+        //return view('risk.action_form');
+        //dd($request->id);
+       dd($request);
+
+    }
+
+
+
 
 }

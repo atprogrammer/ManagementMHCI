@@ -39,8 +39,8 @@ return false;
 
 
 
-<form action="action_form.php" method="post" onsubmit="return validateForm()">
 
+{!! Form::open(['route' => 'risk.create','method'=>'POST','enctype'=>'multipart/form-data','onsubmit'=>'return validateForm()']) !!}
 
 
 <div class="alert alert-success" role="alert">
@@ -48,10 +48,21 @@ return false;
 <h4 class="alert-heading"> ข้อมูลการติดตามช่วยเหลือ ID : {{$id}}</h4> 
 <h4>ชื่อ - สกุล : <font color="red"> {{$name}} {{$surname}}</font></h4>
 <h4>ตำบล {{$district}} อำเภอ {{$amphure}} จังหวัด {{$province}} เบอร์โทร {{$tel}}</h4>
-<p></p>
+<p>ที่อยู่ : {{$address}}</p>
 <hr>
 
 </div>
+
+<input type="hidden" id="id" name="id" value="{{$id}}">
+<input type="hidden" id="name" name="name" value="{{$name}}">
+<input type="hidden" id="surname" name="surname" value="{{$surname}}">
+<input type="hidden" id="district" name="district" value="{{$district}}">
+<input type="hidden" id="amphure" name="amphure" value="{{$amphure}}">
+<input type="hidden" id="province" name="province" value="{{$province}}">
+<input type="hidden" id="tel" name="tel" value="{{$tel}}">
+<input type="hidden" id="address" name="address" value="{{$address}}">
+<input type="hidden" id="date_in" name="date_in" value="{{$date_in}}">
+
 
 <input class="btn btn-primary" type="submit" value="เพิ่มข้อมูลการติดตามช่วยเหลือ">
 <p>
@@ -145,7 +156,8 @@ return false;
 </tbody>
 </table>
 <input type="hidden" id="ok" name="ok" value="<?php echo $stat_ok;?>">
-</form>
+
+{!! Form::close() !!}
 </div>
 </body>
 
