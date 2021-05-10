@@ -109,13 +109,25 @@
     
     <div class="alert alert-success" role="alert">
     
-      <h4 class="alert-heading"> ข้อมูลการติดตามช่วยเหลือ :</h4>
+      <h4 class="alert-heading"> ข้อมูลการติดตามช่วยเหลือ ID : {{$id}}</h4>
       <h4>ชื่อ - สกุล : <font color="red">{{$name}} {{$surname}}</font></h4>
       <h4>ตำบล {{$district}} อำเภอ {{$amphure}} จังหวัด {{$province}} เบอร์โทร {{$tel}}</h4>
       <p></p>
       <hr>
       <p class="mb-0">ที่อยู่ : {{$address}}</p>
     </div>
+
+    <input type="hidden" id="id" name="id" value="{{$id}}">
+    <input type="hidden" id="name" name="name" value="{{$name}}">
+    <input type="hidden" id="surname" name="surname" value="{{$surname}}">
+    <input type="hidden" id="district" name="district" value="{{$district}}">
+    <input type="hidden" id="amphure" name="amphure" value="{{$amphure}}">
+    <input type="hidden" id="province" name="province" value="{{$province}}">
+    <input type="hidden" id="tel" name="tel" value="{{$tel}}">
+    <input type="hidden" id="address" name="address" value="{{$address}}">
+    <input type="hidden" id="date_in" name="date_in" value="{{$date_in}}">
+    <input type="hidden" id="age" name="age" value="{{$age}}">
+    <input type="hidden" id="gender" name="gender" value="{{$gender}}">
      <!-- Or let Bootstrap automatically handle the layout -->
      <div class="row">
           <div class="col-sm">

@@ -16,7 +16,7 @@
       </div>
       </div>
       <div class="form-group col-md-3">
-
+        
       </div>
       <div class="form-group col-md-3">
 
@@ -37,7 +37,11 @@
           </a>
         </div>
       </div>
-
+      <div class="form-row">
+        <div class="form-group col-md-4"> 
+      <a href="{{route('risk.exportRisktoExcel')}}" type="button" class="btn btn-success">โหลด Excel</a>
+        </div>
+      </div>
       <table class="table table-striped">
         <thead>
           <tr>
@@ -115,9 +119,21 @@
                 $data_create=date('Y-m-d', strtotime($data->data_create));
                 $data_create = preg_replace('|/|',' ', $data_create);
               }
+              if($data->age==null){
+                $age='-';
+              }else{
+                $age=$data->age;
+                $age = preg_replace('|/|',' ', $age);
+              }
+              if($data->gender==null){
+                $gender='-';
+              }else{
+                $gender=$data->gender;
+                $gender = preg_replace('|/|',' ', $gender);
+              }
               ?>
             <td><a href="{{route('risk.get',[$data->id,$risk_name,$risk_surname
-            ,$name_district,$name_amphure,$name_province,$risk_tel,$address,$data_create])}}">
+            ,$name_district,$name_amphure,$name_province,$risk_tel,$address,$data_create,$age,$gender])}}">
                 <?php if($data->data_id<=0){?>
                 <img src="{{asset('images/FALSE.png')}}" width="50px" height="50px">
                 <?php }else if($data->trace=='1'){?>
